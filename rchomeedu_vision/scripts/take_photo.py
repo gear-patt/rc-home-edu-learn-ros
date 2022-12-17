@@ -35,7 +35,8 @@ class TakePhoto:
 
         # Connect image topic
         #img_topic = "/camera/rgb/image_raw"
-        img_topic = "/camera_top/rgb/image_raw"
+        #img_topic = "/camera_top/rgb/image_raw"
+	    img_topic = "/usb_cam/image_raw"
         self.image_sub = rospy.Subscriber(img_topic, Image, self.callback)
 
         # Allow up to one second to connection
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     # Default value is 'photo.jpg'
     #img_title = rospy.get_param('~image_title', 'photo.jpg')
     timestr = time.strftime("%Y%m%d-%H%M%S-")
-    img_title = timestr + "photo.jpg"
+    img_title = "/home/gear-patt" + /timestr + "photo.jpg"
 
     if camera.take_picture(img_title):
         rospy.loginfo("Saved image " + img_title)
